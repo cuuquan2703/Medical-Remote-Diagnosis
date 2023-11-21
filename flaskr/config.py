@@ -13,3 +13,7 @@ DB_USERNAME = os.environ.get('DB_USERNAME')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 
 HASHING_METHOD = os.environ.get('HASHING_METHOD')
+
+CLIENT_IMAGE = os.environ.get('CLIENT_IMAGE')
+DETECT_FOLDER = os.environ.get('DETECT_FOLDER')
+TEMP_FOLDER = os.environ.get('TEMP_FOLDER')

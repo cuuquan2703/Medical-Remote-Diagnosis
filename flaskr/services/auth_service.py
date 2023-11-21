@@ -13,7 +13,7 @@ class AuthService():
         hash_password = "$".join([method,salt,password_in_db])
 
         check = password
-        print(hash_password)
+        print("Hash_pass sau join: ",hash_password)
         if check_password_hash(hash_password,check):
             return True
         else:
@@ -32,9 +32,12 @@ class AuthService():
 
     def create_hashing_password(self,password, method=HASHING_METHOD):
         hash_password = generate_password_hash(password,method)
+        hash_password = hash_password.split("$")
         algo = hash_password[0]
+        
         salt = hash_password[1]
         new_password = hash_password[2]
+        print(f'full_hash_password:  {hash_password} \n part: {new_password},{salt,algo}')
         return{
             'full_hash_password': hash_password,
             'part': (new_password,salt,algo)

@@ -4,8 +4,9 @@ import App from './App.jsx'
 import './index.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Login from './components/login.jsx'
-import Register from './components/register.jsx'
+import SignUp from './components/Signup/SignUp.jsx';
 import LoginByFace from './components/LoginByFace.jsx'
+import FaceSignUp from './components/Face/Face_SignUp.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       </Route>
       <Route path='/login' element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/>
+      <Route exact path="/register" element={<SignUp />} /> 
+      <Route exact path="/face_register" element={<FaceSignUp />} />
+
       <Route path='/loginByFace' element={<LoginByFace/>}/>
     </Routes>
     </BrowserRouter>

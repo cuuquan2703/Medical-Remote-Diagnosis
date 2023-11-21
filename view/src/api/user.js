@@ -38,18 +38,20 @@ const userApi = {
     },
     register: async (formData)=>{
         try {
-            return fetch(`${url}/register`,{
-                method:'POST',
-                body: formData,
-                }).then(resolve=>{
-                    return resolve.json()
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        } catch (error) {
-            console.log(error)
-        }
+            const response = await fetch(`${url}/register`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+            });
+            return await response.json();
+
+          } catch (error) {
+            console.error('Error:', error);
+            throw error;
+          }
+        
     }
 }
 
