@@ -27,9 +27,10 @@ class SignUpController:
             
             #cv2.imwrite(path_image, np.array(image))
 
-            image = FaceDetector.detect_face(detector, "opencv", np.array(image))
+            face_cascade = cv2.CascadeClassifier(os.path.join(os.getcwd(),"haarcascade_frontalface_default.xml"))
+            image = face_cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
             print(image, "----------------")
-            cv2.imwrite(os.path.join(path_image,file_name), np.array(image[0]))
+            cv2.imwrite(os.path.join(path_image,file_name), np.array(image))
             (new_password,_salt,algo) = authservice.create_hashing_password(password)['part']
             print(f"{algo},{_salt},{new_password}")
             new_account = UserModel(username=username, salt=_salt,password=new_password, img_path=path_image)
