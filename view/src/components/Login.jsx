@@ -9,6 +9,7 @@ const Login = () => {
     password:"",
   })
 
+  const [mess, setMess] = useState(<div></div>)
   const _onSubmit = async (e) => {
     e.preventDefault();
     const form = e.target
@@ -25,6 +26,7 @@ const Login = () => {
   // }
     const res = await userApi.login(formdata)
     console.log(res)
+    setMess(<div>{res?.message}</div>)
   }
 
 
@@ -49,6 +51,7 @@ const Login = () => {
       <Form.Label>Password</Form.Label>
       <Form.Control controlid='password' name='password' type="password" placeholder="Password" onChange={_onChange}/>
     </Form.Group>
+    {mess}
     <>
       <Button variant="primary" type="submit">Login</Button>
     </>

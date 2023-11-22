@@ -4,11 +4,12 @@ import { Button, Form } from "react-bootstrap"
 import toBlob from "./utils"
 import userApi from "../api/user"
 
+
 const LoginByFace = ()=> {
     const [formData,setFormData] = useState({
         img: new Blob()
     })
-
+    const [mess,setMess] = useState(<div></div>)
     const [imgSrc,setImgSrc] = useState(null)
     const _onSubmit = async (e) => {
         e.preventDefault();
@@ -26,6 +27,7 @@ const LoginByFace = ()=> {
       // }
         const res = await userApi.loginByFace(formdata)
         console.log(res)
+        setMess(<div>{res?.message}</div>)
       }
 
       
@@ -42,6 +44,7 @@ const LoginByFace = ()=> {
             <Form.Group className="mb-3" controlId="formGroupUsername">
             <Form.Label>Username</Form.Label>
             <Form.Control controlid='username' name='username' type="text" placeholder="Username" onChange={_onChange} />
+            {mess}
             </Form.Group>
                 <Camera imgSrc={imgSrc} setImgSrc={setImgSrc} />
                 <Button variant="primary" type="submit">Login</Button>

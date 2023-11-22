@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import userApi from '../api/user';
 import Camera from './Camera';
 import toBlob from './utils';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData,setFormData] = useState({
@@ -12,6 +13,7 @@ const Register = () => {
     img:new Blob()
   })
 
+  const navigate = useNavigate()
   const [imgSrc, setImgSrc] = useState(null)
   const _onSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +39,9 @@ const Register = () => {
   // }
     const res = await userApi.register(formdata)
     console.log(res)
+    if (res.success == true) {
+      navigate("/")
+    }
   }
 
   const _onChange = (e) =>{

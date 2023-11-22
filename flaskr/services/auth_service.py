@@ -32,6 +32,7 @@ class AuthService():
 
     def create_hashing_password(self,password, method=HASHING_METHOD):
         hash_password = generate_password_hash(password,method)
+        hash_password = hash_password.split("$")
         algo = hash_password[0]
         salt = hash_password[1]
         new_password = hash_password[2]

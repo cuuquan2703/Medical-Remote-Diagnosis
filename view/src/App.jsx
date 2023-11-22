@@ -6,9 +6,9 @@ function App() {
 
   return (
     <>
-    <Link to="login">Login</Link>
-    <Link to="register">Register</Link>
-    <Link to="loginByFace">Login By Face</Link>
+    <Link to="login">Login</Link><br/>
+    <Link to="register">Register</Link><br/>
+    <Link to="loginByFace">Login By Face</Link><br/>
     </>
   )
 }
