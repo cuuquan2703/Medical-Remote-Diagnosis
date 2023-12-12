@@ -13,3 +13,4 @@ DB_USERNAME = os.environ.get('DB_USERNAME')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 
 HASHING_METHOD = os.environ.get('HASHING_METHOD')
+SECRET_KEY = os.environ.get('SECRET_KEY')

@@ -1,13 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import func
 
 db = SQLAlchemy()
 class UserModel(db.Model):
 
     __tablename__ = 'users'
 
-    username = db.Column(db.String(),primary_key = True)
+    id  = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(), unique=True)
     salt = db.Column(db.String())
     password = db.Column(db.String())
+    created_at = db.Column(db.DateTime(timezone=True),
+                           server_default=func.now())
 
 
     def __init__(self, username=None, salt=None, password=None) -> None:
