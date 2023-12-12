@@ -13,3 +13,8 @@ DB_USERNAME = os.environ.get('DB_USERNAME')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 
 HASHING_METHOD = os.environ.get('HASHING_METHOD')
+
+UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
+TEMP_FOLDER = os.environ.get('TEMP_FOLDER')
+MODEL_FOLDER = os.environ.get('MODEL_FOLDER')
+ALLOWED_EXTENSIONS = os.environ.get('ALLOWED_EXTENSIONS')

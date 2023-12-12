@@ -1,5 +1,5 @@
 from flask import Flask
-from .routes import  abp
+from .routes import  abp,ibp
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from .models.user_model import db
@@ -17,7 +17,7 @@ db.init_app(app)
 migrate = Migrate(app,db)
 
 app.register_blueprint(abp)
-# app.register_blueprint(ibp)
+app.register_blueprint(ibp)
 
 if __name__ == "__main__":
     app.run()
